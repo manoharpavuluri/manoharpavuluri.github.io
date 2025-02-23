@@ -16,8 +16,8 @@ template.innerHTML = `
         </div>
 		
 		<div class="short-description">
-			<p><span>Quantitative analyst focused on applying AI, ML, and algorithmic techniques to financial markets. 
-			Passionate about investing, solving challenges, and the conceptualization of complex and abstract tasks.</span></p>
+			<p><span>Professional with expertise across diverse industries, skilled in leveraging people, processes, and technology to drive performance and efficiency. 
+			Experienced in architecting data-driven solutions with Cloud, ML, Generative AI, and Advanced Analytics. Strong leadership, governance, and digital transformation experience.</span></p>
 		</div>
 
         <nav id="navbar" class="nav-menu navbar">
