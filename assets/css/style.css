@@ -1,0 +1,635 @@
+/**
+* Template Name: iPortfolio - v3.1.0
+* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------------
+# General 
+----------------------------------------------------------------------------------------------------------------------------*/
+.tab { margin-left: 40px; }
+
+.col-lg-8-bis {
+flex: 0 0 auto;
+width: 33%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #2D3E50;
+  margin: 0 0 0 0;
+}
+
+a {
+  color: #149ddd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #37b3ed;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  color: #2D3E50;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------
+# Header 
+----------------------------------------------------------------------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(300px, 20%);
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 0 1%;
+  background-image: linear-gradient(to bottom right, rgba(45,62,80,1), rgba(44,80,80,1), rgba(44,44,80,1));
+  overflow-y: auto;
+  padding-top: 1%;
+  color: #ffffff;
+}
+
+#header .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 60%;
+  border: 0;
+}
+
+#header .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+#header .profile h1 a, #header .profile h1 a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#header .profile .social-links {
+  width:100%;
+  height:50px;
+  text-align:center;
+  padding:5% 10%;
+  display:inline-block;
+}
+
+#header .profile .social-links a {
+  width:46px;
+  height:46px;
+  padding:0;
+  margin-top:0px;
+  margin-right:1%;
+  margin-left:1%;
+  border-radius:50%;
+  display:inline-block;
+}
+
+#header .profile .social-links a:hover {
+  background: #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#header .profile .social-links img {
+  width:40px;
+  height:40px;
+  display:inline-block;
+  text-align:center;
+  margin-top:3px;
+}
+
+#header .short-description {
+  height:20%;
+  margin-left:10%;
+  margin-right:10%;
+  text-align:center;
+  padding:0;
+  margin-top:0;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size:14px;
+}
+
+#main {
+  margin-left: min(20%, 300px);
+  padding-bottom: 10%;
+}
+
+@media (max-width: 1899px) {
+  #header .short-description {
+  font-size:12px;  
+  margin-left:5%;
+  margin-right:5%;
+  }
+}
+
+@media (max-width: 1199px) {
+  #header {
+    left: -22%;
+  }
+  #main {
+    margin-left: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  height:40%;
+  padding-top: min(20px, 20%);
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: block;
+  align-items: center;
+  text-align-last:center;
+  color: #a8a9b4;
+  padding: 3% 3%;
+  margin-bottom: 1%;
+  transition: 0.3s;
+  font-size: 15px;
+  height: 5%;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+.nav-menu a:hover, .nav-menu .active, .nav-menu li:hover > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu a:hover i, .nav-menu .active i, .nav-menu li:hover > a i {
+  color: #149ddd;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  background-color: #02CE55;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+  width:min(50%, 250px);
+}
+
+@media (min-width: 1200px) {
+  .d-xl-none {
+    display: none !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 90%;
+  background-image: url("../img/network.png");
+  background-size: cover;
+  margin-left: min(20%, 300px);
+  margin-top: -0.75vw;
+}
+
+#hero .hero-container {
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
+
+#hero h1 {
+  margin: 0 0 0 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero p {
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 26px;
+  font-family: "Open Sans", sans-serif;
+}
+
+#hero p span {
+  color: #fff;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #02CE55;
+}
+
+@media (max-width: 1199px) {
+  #hero {
+    margin-left: 0px;
+	width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    width: 100%;
+  }
+  #hero h1 {
+    font-size: 20px;
+	padding-left: 0;
+    line-height: 10px;
+	padding-top: 5%;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #hero p {
+	padding-left: 0;
+	font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding-top: 5%;
+  padding-left: min(10%, 50px);	
+  padding-right: 10%;
+  overflow: hidden;
+}
+
+.section-bg {
+  background: #f5f8fd;
+}
+
+.section-title {
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  position: relative;
+  color: #2D3E50;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(to right, rgba(2,206,85,1), rgba(2,206,85,0));
+  bottom: 0;
+  left: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.challenges-links {
+  vertical-align: middle;
+  margin-top: -15px;
+  margin-bottom: 30px;
+}
+
+.challenges-link-box{
+  margin: 2% 2%;
+  border: 2px solid #2D3E50;
+  background: rgba(0,0,0,0);
+  width: max(min(25%, 200px), 100px);
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0% 2%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #2D3E50;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.challenges-link-box:after {
+  content: "";
+  background-color: rgba(2,206,85,.5);
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.challenges-link-box:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+.challenges-link-box p {
+  margin-top: -1px;
+  padding: 0px;
+  vertical-align: middle;
+}
+
+.challenge-description {
+  font-size:45px;
+  font-weight:600;
+  padding-left:min(10%, 50px)
+}
+
+.challenge-name {
+  font-size:30px;
+  color:#02CE55;
+}
+
+@media (max-width: 1499px) {
+  .challenges-link-box{
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  section{
+    padding-left:5%;
+	padding-right:5%;
+  }  
+  .section-title p, li{
+    font-size: 10px;
+  }
+  .section-title h2 {
+  font-size: 20px;
+  margin: 0px;
+  }
+  .challenge-description {
+	padding-left:5%;
+	padding-right:5%;
+	font-size: 30px;
+  }
+  .challenge-name {
+   font-size:18px;
+  }
+  .challenges-link-box{
+  font-size: 8px;
+  width: max(min(25%, 200px), 125px);
+  }
+}
+
+/*--------------------------------------------------------------
+# Introduction
+--------------------------------------------------------------*/
+.introduction .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.introduction .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.introduction .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.introduction .content ul strong {
+  margin-right: 10px;
+}
+
+.introduction .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.introduction .content p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Challenge introduction
+--------------------------------------------------------------*/
+.challenge-section{
+  padding-top: 0px;
+}
+
+.challenge-section .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.challenge-section .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.challenge-section .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.challenge-section .content ul strong {
+  margin-right: 10px;
+}
+
+.challenge-section .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.challenge-section .content p:last-child {
+  margin-bottom: 0;
+}
+
+.challenge-section .columns-table{
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: min(40%, 225px);
+  font-size: 11px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  float:left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  clear: both;
+  box-sizing: content-box;
+}
+
+.challenge-section .columns-table thead {
+  background: #2D3E50;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+}
+
+.challenge-section .columns-table tr {
+  border-bottom: 0px solid #DDDDDD;
+}
+
+.challenge-section .columns-table tr:last-of-type {
+  border-bottom: 0px solid #2D3E50;
+}
+
+.challenge-section .columns-table th, .columns-table td {
+  padding: 1% 0% 1% 2%;
+  box-sizing: border-box;
+  min-width: 65px;
+}
+
+.challenge-section .table-explanation {
+  float:left; 
+  width:50%;
+  margin-left: min(50px, 5%);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.challenge-section .table-explanation p {
+  margin: 0px;
+  font-size: 12px;
+}
+
+.challenge-section .examples-table{
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  overflow: hidden;
+  font-size: 11px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 20px 1% 20px 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.challenge-section .examples-table thead {
+  background: #2D3E50;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+}
+
+.challenge-section .examples-table tr {
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.challenge-section .examples-table tr:nth-of-type(even){
+  background-color: #F3F3F3;
+}
+
+.challenge-section .examples-table tr:last-of-type {
+  border-bottom: 2px solid #2D3E50;
+}
+
+.challenge-section .table-narrow th, .table-narrow td {
+  padding: 1% 0% 1% 2%;
+  min-width: 75px;
+}
+
+.challenge-section .table-small th, .table-small td {
+  padding: 1% 0% 1% 2%;
+  min-width: 100px;
+}
+
+.challenge-section .table-medium th, .table-medium td {
+  padding: 1% 0% 1% 2%;
+  min-width: 125px;
+}
+
+.challenge-section .table-large th, .table-large td {
+  padding: 1% 0% 1% 2%;
+  min-width: 175px;
+}
+
+@media (max-width: 768px) {
+  .challenge-section .columns-table{
+	font-size: 8px;
+	width: min(40%, 180px);
+  }
+  .challenge-section .examples-table{
+	font-size: 8px;
+  }
+  .challenge-section .table-explanation p {
+    font-size: 8px;
+}
+  .challenge-section .table-narrow th, .table-narrow td {
+    min-width: 45px;
+}
+  .challenge-section .table-small th, .table-small td {
+    min-width: 75px;
+}
+  .challenge-section .table-medium th, .table-medium td {
+    min-width: 90px;
+}
+  .challenge-section .table-large th, .table-large td {
+    min-width: 125px;
+}
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>Python | European options</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+	
+	<!-- Google Site Verification -->
+    <meta name="google-site-verification" content="DCSbtcds2oWXGOsnqmm7Q_wLuvkTXY1h2-DgVP8euTg" />
+	
+	<!-- Favicons -->
+    <link href="assets/img/RubenCloseupRound.png" rel="icon">
+    <link href="assets/img/RubenCloseupRound.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|JetBrains+Mono" rel="stylesheet">
+	
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/code-format.css" rel="stylesheet">
+	
+	<!-- highlight.js script to format code -->
+	<script src="assets/js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<!-- mathjax script to format mathematical expressions -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+	
+	<!-- Load HTML template elements -->
+	<script src="assets/js/add_header.js" type="text/javascript" defer></script> <!-- Header -->
+	
+	<!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	
+
+    <!-- =======================================================
+    * Template Name: iPortfolio - v3.1.0
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list-ul mobile-nav-toggle d-xl-none"></i>
+
+<main id="main">
+
+	<div class="challenge-description">
+	<p>Python | <span class="challenge-name">European options</span></p>
+	</div>
+	
+    <!-- ======= Challenge introduction section ======= -->
+    <section id="challenge-introduction" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Challenge introduction</h2>
+
+                <p>Pricing European options holds significant relevance in the field of finance, and acquiring the capability to perform these calculations through 
+				both <strong>analytical formulas</strong> and <strong>Monte Carlo simulations</strong> in Python is a valuable skill set for those involved in 
+				<strong>quantitative finance</strong> and algorithmic trading. These methods enable finance professionals and programmers to not only gain a <strong>deeper 
+				understanding of option pricing models</strong> but also to develop practical and efficient tools.</p>
+				
+				<p>By implementing these pricing models in Python, one 
+				can automate and streamline the process, making it easier to analyze various <strong>option strategies</strong>, perform <strong>risk assessments</strong>, 
+				and adapt to <strong>dynamic market conditions</strong>. Moreover, this programming proficiency can be leveraged in developing custom financial software or 
+				algorithmic trading systems, ultimately enhancing one's ability to make data-driven investment decisions and manage portfolios effectively in today's 
+				fast-paced financial landscape.</p>
+				
+				<p>This challenge comes from my own experience in the field of <strong>quantitative finance</strong>. 
+				I recommend attempting to solve the challenge independently before reviewing the provided solution.</p>
+
+
+            </div>
+
+        </div>
+    </section><!-- End challenge introduction section -->
+	
+	<!-- ======= Problem statement section ======= -->
+    <section id="problem-statement" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Problem statement</h2>
+
+                <p>European options are <strong>financial derivatives</strong> commonly traded in the stock and options markets. A European call option provides 
+				the holder <strong>the right</strong>, but not the obligation, to <strong>buy an underlying asset</strong>, typically a stock, at a <strong>predetermined 
+				strike price</strong> on a specified expiration date. On the other hand, a European put option gives the holder <strong>the right</strong>, but not the 
+				obligation, to <strong>sell the underlying asset</strong> at the <strong>agreed-upon strike price</strong> upon the expiration date. These options differ 
+				from American options in that they can only be exercised <strong>at expiration</strong>, while American options can be exercised at any time before or on 
+				the expiration date.</p>
+				
+				<p>Upon reaching the expiration date, the profit outcomes for both call and put option buyers can be depicted as illustrated in the <strong>following 
+				charts</strong>. When the market price of the underlying asset falls below (rises above) the predetermined strike price, the call (put) option buyer 
+				incurs a <strong>limited loss</strong> equivalent to the premium paid to acquire the option. As the underlying asset's price surpasses the strike price, 
+				the option's payoff <strong>becomes positive</strong>, and the breakeven point is achieved when the payoff equals the initial premium investment.</p>
+				
+				<a><img src="assets/img/european_call_put.png" style="width:max(min(70%, 700px), 300px);padding-top:1%;"></a>
+				
+				<p>Key pricing parameters for European options include the <strong>strike price</strong> (the price at which the asset will be bought or sold), the 
+				<strong>current market price</strong> of the underlying asset, the <strong>time to expiration</strong>, the <strong>risk-free interest rate</strong>, 
+				and <strong>volatility</strong>. These parameters are crucial in determining the option's market price, and mathematical models like the 
+				<strong>Black-Scholes-Merton model</strong> are often used to calculate the fair value of European options.</p>
+				
+				<p>You have been provided with the task of obtaining the prices for a <strong>European call</strong> and a <strong>European put</strong> under the 
+				Black-Scholes-Merton model by using two different approaches: <strong>analytical closed form</strong> and <strong>Monte Carlo simulation</strong>.</p>
+
+            </div>
+
+        </div>
+    </section><!-- End problem statement section -->
+
+	<!-- ======= Solution section ======= -->
+    <section id="solution" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Solution</h2>
+
+                <p>The Black-Scholes-Merton model, pioneered by economists Fischer Black, Myron Scholes, and Robert Merton in the early 1970s, laid the groundwork 
+				for the development of <strong>rigorous mathematical models</strong> in the realm of <strong>derivative pricing</strong>.</p>
+				
+				<p>The model relies on a set of fundamental assumptions. Firstly, it assumes the <strong>efficiency of financial markets</strong>, characterized by 
+				the <strong>absence of arbitrage opportunities</strong>. Second, it postulates that the underlying asset of the option follows a <strong>geometric Brownian 
+				motion</strong>, capturing the continuous and stochastic nature of asset price fluctuations. The model further assumes the <strong>absence of transaction 
+				costs</strong> and <strong>constant interest rates</strong>.</p>
+				
+				<p>A notable feature of the Black-Scholes-Merton model is that it intriguingly does not consider the expected returns of the underlying asset, as the 
+				valuation approach seeks to create a <strong>hedged portfolio</strong> that remains immune to the stochastic evolution of the asset rather (while 
+				<strong>considering its volatility</strong>). By ensuring that the option portfolio is effectively hedged, the invested amount is expected to increase 
+				solely at the risk-free interest rate, which, therefore, serves as the relevant rate of return under the <strong>risk-neutral</strong> framework employed 
+				by the model.</p> 
+				
+				<p>Ultimately, Black, Scholes, and Merton derived a system of <strong>differential equations</strong> governing the dynamics of option values, leading to 
+				the following <strong>analytical expressions</strong> for pricing European call (\(\small C\)) and put (\(\small P\)) options.</p>
+				
+				<p>\(\small \displaystyle C = S e^{-q t}N(d_1) - K e^{-r t}N(d_2)\)</br>
+				\(\small \displaystyle P = K e^{-r t}N(-d_2) - S e^{-q t}N(-d_1)\)</p>
+				
+				<p>With:</p>
+				
+				<p>\(\small \displaystyle d_1 = \frac{\ln{\frac{S}{K}} + (r - q + \frac{\sigma^2}{2}) t}{\sigma \sqrt{t}}\)</br>
+				\(\small \displaystyle d_2 = \frac{\ln{\frac{S}{K}} + (r - q - \frac{\sigma^2}{2}) t}{\sigma \sqrt{t}} = d_1 - \sigma \sqrt{t}\)</br>
+				\(\small \displaystyle N(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-z^2/2}dz\) &emsp; (the CDF of the Gaussian distribution)</p>
+				
+				<p>Where:</p>
+				
+				<ul>				
+					<li>\(\small S\) is the current price of the underlying.</li>
+					<li>\(\small K\) is the strike price.</li>
+					<li>\(\small r\) is the risk-free rate of return.</li>
+					<li>\(\small t\) is the time to maturity for the option.</li>
+					<li>\(\small \sigma\) is the volatility of the underlying.</li>
+					<li>\(\small q\) is continuous rate of dividends of the underlying.</li>
+				</ul>
+				
+				<p>One posible implementation of the analytical formula in Python is as follows:</p>
+				
+				<pre><code class="python">
+import numpy as np
+from scipy.stats import norm
+
+
+def calc_bs_formula_european_option_price(option_type: str, s_0: float, k: float, r: float, 
+                                          t: float, sigma: float, q: float = 0) -> float:
+										  
+    d1 = (np.log(s_0 / k) + (r - q + (sigma ** 2) / 2) * t) / (sigma * np.sqrt(t))
+    d2 = d1 - sigma * np.sqrt(t)
+	
+    if option_type == 'call':
+        price = s_0 * np.exp(-q * t) * norm.cdf(d1) - k * np.exp(-r * t) * norm.cdf(d2)
+		
+    elif option_type == 'put':
+        price = k * np.exp(-r * t) * norm.cdf(-d2) - s_0 * np.exp(-q * t) * norm.cdf(-d1)
+		
+    else:
+        raise ValueError(f'Option type {option_type} not recognized, please use call or put')
+    
+    return price
+				</code></pre>
+
+				<p>The alternative Monte Carlo simulation approach involves simulating the <strong>geometric Brownian motion</strong> that governs the <strong>behavior 
+				of the underlying asset</strong> and then discounting the expected option payoff to its present value. The dynamics of the underlying asset price are 
+				modeled using the following formula:</p>
+				
+				<p>\(\displaystyle S_t = S e^{(\mu - q - \frac{\sigma^2}{2})t + \sigma W_t}\)</p>
+				
+				<p>Here, \(\small W_t\) represents a Wiener process or <strong>standard Brownian motion</strong>, with the rest of the elements following the notation 
+				previously described.</p>
+				
+				<p>After simulating a sufficient number of asset price paths up to the option's expiration at time \(\small T\), we can extract the vector of <strong>simulated 
+				underlying prices</strong> at expiration (\(\small S_T\)). Therefore, the option's value at expiration is determined by the average of 
+				\(\small max(S_T - K, 0)\) for call options and \(\small max(K - S_T, 0)\) for put options. To arrive at the present-day option price, the final step involves 
+				<strong>discounting to present value</strong> using the factor \(\small e^{-rt}\).</p>
+
+				<pre><code class="python">
+import numpy as np
+from typing import Tuple
+
+
+class WienerProcess:
+    """
+    This class implements an arbitrary number of independent Wiener processes.
+    The output is a 3D numpy ndarray with the following axes:
+        · n_steps: number of steps for each brownian motion.
+        · n_processes: number of independent processes to simulate.
+        · n_assets: number of independent simulations with n_steps and n_processes.
+    """
+
+    def __init__(self, periods: int = 252) -> None:
+        self.periods = periods
+
+    def calculate(self, n_steps: int, n_processes: int, 
+                  n_assets: int = 1) -> Tuple[np.ndarray, np.ndarray]:
+        shape = (n_steps, n_processes, n_assets)
+        u_t = np.random.normal(loc=0, scale=1 / np.sqrt(self.periods), size=shape)
+        w_t = np.concatenate((np.zeros(shape=(1, n_processes, n_assets)), 
+                              u_t.cumsum(axis=0)), axis=0)
+        return u_t, w_t
+
+
+class GeometricBrownianMotion:
+    """
+    This class implements an arbitrary number of correlated geometric brownian motions.
+    The output is a 2D numpy ndarray with the following axes:
+        · n_steps: number of steps for each brownian motion.
+        · n_processes: number of independent processes to simulate.
+    """
+
+    def __init__(self, mu: float, sigma: float, s_0: float, q: float, 
+	             periods: int = 252) -> None:
+        self.periods = periods
+        self.mu, self.sigma = mu, sigma
+        self.s_0 = s_0
+        self.q = q
+
+    def calculate(self, n_steps: int, n_processes: int) -> np.ndarray:
+        _, w_t = WienerProcess(periods=self.periods).calculate(*(n_steps, n_processes))
+        t = np.arange(0, n_steps + 1) / self.periods
+        drift = (self.mu - self.q - .5 * self.sigma ** 2) * t
+        s_t = self.s_0 * np.exp(drift[:, np.newaxis] + (self.sigma * w_t[:, :, 0]))
+        return s_t
+
+
+def calc_bs_simulation_european_option_price(option_type: str, s_0: float, k: float, 
+                                             r: float, t: float, sigma: float, 
+                                             q: float = 0, periods: int = 252,
+                                             n_processes: int = 100_000) -> float:
+
+    s_t = GeometricBrownianMotion(r, sigma, s_0, q, periods).calculate(int(periods * t), 
+                                                                       n_processes)
+
+    if option_type == 'call':
+        price = np.exp(-r * t) * np.maximum(s_t[-1, :] - k, 0).mean()
+
+    elif option_type == 'put':
+        price = np.exp(-r * t) * np.maximum(k - s_t[-1, :], 0).mean()
+
+    else:
+        raise ValueError(f'Option type {option_type} not recognized, please use call or put')
+
+    return price
+				</code></pre>
+				
+				<p>However, if our primary concern is solely the <strong>resulting option price</strong> without the need to consider other critical factors like option 
+				sensitivities (the Greeks), we can develop a <strong>significantly faster</strong> and <strong>more robust</strong> simulation method based on the 
+				properties of the geometric Brownian motion at the option's maturity.</p>
+				
+				<p>Upon closer examination of our geometric Brownian motion formula, we note a <strong>drift term</strong> that is time-dependent and a <strong>stochastic 
+				term</strong> driven by a standard Brownian motion. For the drift term, we can conveniently replace the variables with their values at maturity, 
+				substituting \(\small T\) instead of each intermediate \(\small t\), to determine the value at expiration. Regarding the Wiener process, <strong>we can 
+				determine its mean (zero) and variance (\(\small T\))</strong> after \(\small T\) time steps, which is sufficient to characterize 
+				its distribution of values. This simplification allows us to bypass intermediate steps and model the <strong>expected distribution of \(\small S_T\)</strong>, 
+				following the previously described approach.</p>
+				
+				<p>This method converges <strong>much more rapidly</strong> as it requires the generation of significantly <strong>fewer random numbers</strong>. Additionally, 
+				it is <strong>more precise</strong>, as it mitigates rounding errors and phenomena associated with the pseudo-random nature of numbers generated by 
+				computer-based Monte Carlo simulations.</p>
+				<p></p>
+				
+				<pre><code class="python">
+import numpy as np
+from scipy.stats import norm
+
+
+def calc_bs_distribution_european_option_price(option_type: str, s_0: float, 
+                                               k: float, r: float, t: float, 
+                                               sigma: float, q: float = 0, 
+                                               n_processes: int = 500_000) -> float:
+
+    prob_space = np.linspace(.000001, .999999, n_processes)
+    b_t = norm(loc=0, scale=np.sqrt(t))
+    s_t = s_0 * np.exp((r - q - .5 * sigma ** 2) * t + sigma * b_t.ppf(prob_space))
+
+    if option_type == 'call':
+        price = np.exp(-r * t) * np.maximum(s_t - k, 0).mean()
+
+    elif option_type == 'put':
+        price = np.exp(-r * t) * np.maximum(k - s_t, 0).mean()
+        
+    else:
+        raise ValueError(f'Option type {option_type} not recognized, please use call or put')
+
+    return price
+
+				</code></pre>
+				
+            </div>
+
+        </div>
+    </section><!-- End solution section -->
+	
+</main>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

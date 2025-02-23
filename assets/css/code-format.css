@@ -1,0 +1,120 @@
+/* Code format theme */
+
+/* ------------ Python formatting ------------------------------------------- */
+pre .python .hljs-keyword {
+  color: #C1742F;
+}
+
+pre .python .hljs-title.function_ {
+  color: #FBC45C;
+}
+
+pre .python .hljs-comment {
+  color: #7F7F75;
+}
+
+pre .python .hljs-variable .hljs-params {
+  color: #7F7F75;
+}
+
+pre .python .hljs-string {
+  color: #5F964A;
+}
+
+pre .python .hljs-number {
+  color: #5F90A6;
+}
+
+pre .python .hljs-built_in {
+  color: #8288B9;
+}
+
+pre .python .hljs-literal {
+  color: #C86D2F;
+}
+
+/* ------------ SQL formatting ------------------------------------------- */
+pre .sql .hljs-keyword {
+  color: #0183B8;
+}
+
+pre .sql .hljs-number, .sql .hljs-string {
+  color: #C44780;
+}
+
+pre .sql .hljs-comment {
+  color: #01B93A;
+}
+
+pre .sql .hljs-built_in {
+  color: #C86C04;
+}
+
+/* ------------ C++ formatting ------------------------------------------- */
+
+pre .cpp .hljs-type {
+  color: #6E9DC0;
+}
+
+pre .cpp .hljs-number {
+  color: #B5CEA8;
+}
+
+pre .cpp .hljs-string {
+  color: #D79677;
+}
+
+pre .cpp .hljs-title {
+  color: #DECB8E;
+}
+
+pre .cpp .hljs-keyword {
+  color: #DD9FDA;
+}
+
+pre .cpp .hljs-built_in {
+  color: #48B38F;
+}
+
+pre .cpp .hljs-comment {
+  color: #569D3B;
+}
+
+
+pre code {
+  border-radius: 20px;
+  display: block;
+  background: #2B2B2B !important; 
+  color: #c5c8c6 !important;
+  font-family: "JetBrains Mono";
+  font-size:13px;
+  line-height: 1.2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-weight: 400;
+}
+
+@media (max-width: 925px) {
+  pre code{
+    font-size:10px;
+  } 
+  pre .cpp{
+    font-size:9px;
+  }
+  
+@media (max-width: 768px) {
+  pre code{
+    font-size:8px;
+  }  
+  pre .cpp{
+    font-size:6.5px;
+  }
+ 
+@media (max-width: 450px) {
+  pre code{
+    font-size:6px;
+  }  
+  pre .cpp{
+    font-size:5px;
+  }
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>SQL | Interviews</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+	
+	<!-- Google Site Verification -->
+    <meta name="google-site-verification" content="DCSbtcds2oWXGOsnqmm7Q_wLuvkTXY1h2-DgVP8euTg" />
+	
+	<!-- Favicons -->
+    <link href="assets/img/RubenCloseupRound.png" rel="icon">
+    <link href="assets/img/RubenCloseupRound.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|JetBrains+Mono" rel="stylesheet">
+	
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/code-format.css" rel="stylesheet">
+	
+	<!-- highlight.js script to format code -->
+	<script src="assets/js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<!-- Load HTML template elements -->
+	<script src="assets/js/add_header.js" type="text/javascript" defer></script> <!-- Header -->
+	
+	<!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	
+
+    <!-- =======================================================
+    * Template Name: iPortfolio - v3.1.0
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list-ul mobile-nav-toggle d-xl-none"></i>
+
+<main id="main">
+
+	<div class="challenge-description">
+	<p>SQL | <span class="challenge-name">Interviews</span></p>
+	</div>
+	
+    <!-- ======= Challenge introduction section ======= -->
+    <section id="challenge-introduction" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Challenge introduction</h2>
+
+                <p>This challenge offers a valuable exercise in constructing <strong>complex queries</strong>, <strong>aggregating</strong> and <strong>transforming 
+				data</strong>, and <strong>handling missing data</strong>. This problem enhances SQL skills, especially in areas like CTEs, JOIN operations, and 
+				data aggregation. These skills are useful in real-world scenarios, where data from multiple sources needs <strong>consolidation and analysis</strong>.</p>
+				
+				<p>The problem is sourced from <strong>HackerRank</strong> and is available at the following 
+				<strong><a href="https://www.hackerrank.com/challenges/interviews/problem" target="_blank" style="color:#02CE55;">link</a></strong>. 
+				I recommend attempting to solve the challenge independently before reviewing the provided solution.</p>
+
+
+            </div>
+
+        </div>
+    </section><!-- End challenge introduction section -->
+	
+	<!-- ======= Problem statement section ======= -->
+    <section id="problem-statement" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Problem statement</h2>
+
+                <p>Samantha interviews many candidates from different colleges using coding challenges and contests. Write a query to print the 
+				<strong>contest_id</strong>, <strong>hacker_id</strong>, <strong>name</strong>, and the sums of <strong>total_submissions</strong>, 
+				<strong>total_accepted_submissions</strong>, <strong>total_views</strong>, and <strong>total_unique_views</strong> for each contest sorted by 
+				<strong>contest_id</strong>. Exclude the contest from the result if all four sums are zero.</p>
+				
+				<p><strong>Note:</strong> A specific contest can be used to screen candidates at more than one college, but each college only holds one 
+				screening contest.</p>
+				
+				<p><strong>Input format</strong>.</br>The data needed for this challenge is spread across the following tables:</p>
+				
+				<div>  <!-- ======= Start contests table ======= -->
+					<table class="columns-table">
+						<thead>
+							<th>Column</th><th>Type</th>					
+						</thead>
+						<tbody>
+							<tr><td>contest_id</td><td>Integer</td></tr>
+							<tr><td>hacker_id</td><td>Integer</td></tr>
+							<tr><td>name</td><td>String</td></tr>
+						</tbody>
+					</table>
+					<span class="table-explanation">
+						<p><strong>contests</strong></p>
+						<p>The contest_id is the id of the contest, hacker_id is the id of the hacker who created the contest, 
+						and name is the name of the hacker.</p>
+					</span>
+				</div>  <!-- ======= End contests table ======= -->
+				
+				<div>  <!-- ======= Start colleges table ======= -->
+					<table class="columns-table">
+						<thead>
+							<th>Column</th><th>Type</th>					
+						</thead>
+						<tbody>
+							<tr><td>college_id</td><td>Integer</td></tr>
+							<tr><td>contest_id</td><td>Integer</td></tr>
+						</tbody>
+					</table>
+					<span class="table-explanation">
+						<p><strong>colleges</strong></p>
+						<p>The college_id is the id of the college, and contest_id is the id of the contest that Samantha used 
+						to screen the candidates.</p>
+					</span>
+				</div>  <!-- ======= End colleges table ======= -->
+				
+				<div>  <!-- ======= Start challenges table ======= -->
+					<table class="columns-table">
+						<thead>
+							<th>Column</th><th>Type</th>					
+						</thead>
+						<tbody>
+							<tr><td>challenge_id</td><td>Integer</td></tr>
+							<tr><td>college_id</td><td>Integer</td></tr>
+						</tbody>
+					</table>
+					<span class="table-explanation">
+						<p><strong>challenges</strong></p>
+						<p>The challenge_id is the id of the challenge that belongs to one of the contests whose contest_id Samantha 
+						used, and college_id is the id of the college where the challenge was given to candidates.</p>
+					</span>
+				</div>  <!-- ======= End challenges table ======= -->
+				
+				<div>  <!-- ======= Start view_stats table ======= -->
+					<table class="columns-table">
+						<thead>
+							<th>Column</th><th>Type</th>					
+						</thead>
+						<tbody>
+							<tr><td>challenge_id</td><td>Integer</td></tr>
+							<tr><td>total_views</td><td>Integer</td></tr>
+							<tr><td>total_unique_views</td><td>Integer</td></tr>
+						</tbody>
+					</table>
+					<span class="table-explanation">
+						<p><strong>view_stats</strong></p>
+						<p>The challenge_id is the id of the challenge, total_views is the number of times the challenge was viewed 
+						by candidates, and total_unique_views is the number of times the challenge was viewed by unique candidates.</p>
+					</span>
+				</div>  <!-- ======= End view_stats table ======= -->
+				
+				<div>  <!-- ======= Start submission_stats table ======= -->
+					<table class="columns-table">
+						<thead>
+							<th>Column</th><th>Type</th>					
+						</thead>
+						<tbody>
+							<tr><td>challenge_id</td><td>Integer</td></tr>
+							<tr><td>total_submissions</td><td>Integer</td></tr>
+							<tr><td>total_accepted_submissions</td><td>Integer</td></tr>
+						</tbody>
+					</table>
+					<span class="table-explanation">
+						<p><strong>submission_stats</strong></p>
+						<p>The challenge_id is the id of the challenge, total_submissions is the number of submissions for the challenge, 
+						and total_accepted_submission is the number of submissions that achieved full scores. </p>
+					</span>
+				</div>  <!-- ======= End submission_stats table ======= -->
+				
+				<p style="clear: both;padding-top: 2%;"><strong>Sample input</strong>.</p>
+				<p>Take as an example the data contained in the following tables:</p>
+				
+				<!-- ================================================== Start example tables ================================================== -->
+				<!-- ================================================== -------------------- ================================================== -->
+				
+				<div>
+					<table class="examples-table table-small"><!-- ======= Start contests table ======= -->
+						<thead>
+							<th>contest_id</th><th>hacker_id</th><th>name</th>
+						</thead>
+						<tbody>
+							<tr><td>66406</td><td>17973</td><td>Rose</td></tr>
+							<tr><td>66556</td><td>79153</td><td>Angela</td></tr>
+							<tr><td>94828</td><td>80275</td><td>Frank</td></tr>
+						</tbody>
+					</table><!-- ======= End contests table ======= -->
+				
+					<table class="examples-table table-small"><!-- ======= Start colleges table ======= -->
+						<thead>
+							<th>college_id</th><th>contest_id</th>					
+						</thead>
+						<tbody>
+							<tr><td>11219</td><td>66406</td></tr>
+							<tr><td>32473</td><td>66556</td></tr>
+							<tr><td>56685</td><td>94828</td></tr>
+						</tbody>
+					</table><!-- ======= End colleges table ======= -->
+				
+					<table class="examples-table table-small"><!-- ======= Start challenges table ======= -->
+						<thead>
+							<th>challenge_id</th><th>college_id</th>
+						</thead>
+						<tbody>
+							<tr><td>18765</td><td>11219</td></tr>
+							<tr><td>47127</td><td>11219</td></tr>
+							<tr><td>60292</td><td>32473</td></tr>
+							<tr><td>72974</td><td>56685</td></tr>
+						</tbody>
+					</table><!-- ======= End challenges table ======= -->
+				
+				</div>
+				
+				<div>
+					<table class="examples-table table-medium"><!-- ======= Start view_stats table ======= -->
+						<thead>
+							<th>challenge_id</th><th>total_views</th><th>total_unique_views</th>
+						</thead>
+						<tbody>
+							<tr><td>47127</td><td>26</td><td>19</td></tr>
+							<tr><td>47127</td><td>15</td><td>14</td></tr>
+							<tr><td>18765</td><td>43</td><td>10</td></tr>
+							<tr><td>18765</td><td>72</td><td>13</td></tr>
+							<tr><td>75516</td><td>35</td><td>17</td></tr>
+							<tr><td>60292</td><td>11</td><td>10</td></tr>
+							<tr><td>72974</td><td>41</td><td>15</td></tr>
+							<tr><td>75516</td><td>75</td><td>11</td></tr>
+						</tbody>
+					</table><!-- ======= End view_stats table ======= -->
+				
+					<table class="examples-table table-large"><!-- ======= Start submission_stats table ======= -->
+						<thead>
+							<th>challenge_id</th><th>total_submissions</th><th>total_accepted_submissions</th>				
+						</thead>
+						<tbody>
+							<tr><td>75516</td><td>34</td><td>12</td></tr>
+							<tr><td>47127</td><td>27</td><td>10</td></tr>
+							<tr><td>47127</td><td>56</td><td>18</td></tr>
+							<tr><td>75516</td><td>74</td><td>12</td></tr>
+							<tr><td>75516</td><td>83</td><td>8</td></tr>
+							<tr><td>72974</td><td>68</td><td>24</td></tr>
+							<tr><td>72974</td><td>82</td><td>14</td></tr>
+							<tr><td>47127</td><td>28</td><td>11</td></tr>
+						</tbody>
+					</table><!-- ======= End submission_stats table ======= -->
+				<div>
+				
+				<p><strong>Expected output</strong>.</p>
+				<p>The expected output given the sample input is the following:</p>
+				
+				<table class="examples-table table-narrow"><!-- ======= Start expected output table ======= -->
+					<tbody>
+						<tr><td>66406</td><td>17973</td><td>Rose</td><td>111</td><td>39</td><td>156</td><td>56</td></tr>
+						<tr><td>66556</td><td>79153</td><td>Angela</td><td>0</td><td>0</td><td>11</td><td>10</td></tr>
+						<tr><td>94828</td><td>80275</td><td>Frank</td><td>150</td><td>38</td><td>41</td><td>15</td></tr>
+					</tbody>
+				</table><!-- ======= End expected output table ======= -->
+				
+				<p><strong>Explanation</strong>.</p>
+				<p>The contest <strong>66406</strong> is used in the college <strong>11219</strong>. In this college challenges 
+				<strong>18765</strong> and <strong>47127</strong> are asked, so from the view and submission stats we get:</p>
+				<ul>
+					<li><strong>Sum of total submissions</strong> = 27 + 56 + 28 = 111</li>
+					<li><strong>Sum of total accepted submissions</strong> = 10 + 18 + 11 = 39</li>
+					<li><strong>Sum of total views</strong> = 43 + 72 + 26 + 15 = 156</li>
+					<li><strong>Sum of total unique views</strong> = 10 + 13 + 19 + 14 = 56</li>
+				</ul>
+				<p>Similarly, we can find the sums for contests <strong>66556</strong> and <strong>94828</strong>.</p>
+
+            </div>
+
+        </div>
+    </section><!-- End problem statement section -->
+
+	<!-- ======= Solution section ======= -->
+    <section id="solution" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Solution</h2>
+
+                <p>The critical aspect of solving this problem lies in recognizing the <strong>specific sequence of aggregation operations</strong> that must 
+				be executed. With the exception of the view_stats and submission_stats tables, all other tables primarily serve as <strong>intermediaries</strong> connecting 
+				the contest_id (our primary identifier) with the challenge_id, which, in turn, links to view and submission statistics.</p>
+				
+				<p>The initial step involves acknowledging that views and submissions are <strong>distinct aspects stemming from the challenge</strong>. Therefore, 
+				the aggregation of both tables by challenge_id <strong>should be carried out independently</strong> before merging them based on this identifier. 
+				Subsequently, the final step entails joining the tables as interconnections and conducting the <strong>overarching aggregation</strong> based on contest_id.</p>
+				
+				<pre><code class="sql">
+-- Generate auxiliary CTEs
+WITH submissions_agg AS (
+    SELECT challenge_id,
+           SUM(total_submissions) AS sum_subs,
+           SUM(total_accepted_submissions) AS sum_acc_subs
+    FROM submission_stats
+    GROUP BY challenge_id),
+    
+views_agg AS (
+    SELECT challenge_id,
+           SUM(total_views) AS sum_views,
+           SUM(total_unique_views) AS sum_unique_views
+    FROM view_stats
+    GROUP BY challenge_id),
+
+subs_views_agg AS (
+    SELECT COALESCE(s.challenge_id, v.challenge_id) AS challenge_id,
+           COALESCE(sum_subs, 0) AS sum_subs,
+           COALESCE(sum_acc_subs, 0) AS sum_acc_subs,
+           COALESCE(sum_views, 0) AS sum_views,
+           COALESCE(sum_unique_views, 0) AS sum_unique_views
+    FROM submissions_agg AS s
+    FULL JOIN views_agg AS v
+        ON s.challenge_id = v.challenge_id)
+
+-- Main query
+SELECT cont.contest_id, hacker_id, name, 
+       SUM(sum_subs) AS sum_subs,
+       SUM(sum_acc_subs) AS sum_acc_subs,
+       SUM(sum_views) AS sum_views,
+       SUM(sum_unique_views) AS sum_unique_views
+FROM subs_views_agg AS sv     
+LEFT JOIN challenges as chall
+    ON sv.challenge_id = chall.challenge_id
+LEFT JOIN colleges AS coll
+    ON chall.college_id = coll.college_id
+LEFT JOIN contests as cont
+    ON coll.contest_id = cont.contest_id
+GROUP BY cont.contest_id, hacker_id, name
+ORDER BY cont.contest_id ASC;
+				</code></pre>
+				
+            </div>
+
+        </div>
+    </section><!-- End solution section -->
+	
+</main>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

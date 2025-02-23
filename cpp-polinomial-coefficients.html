@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>C++ | Polinomial coefficients</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+	
+	<!-- Google Site Verification -->
+    <meta name="google-site-verification" content="DCSbtcds2oWXGOsnqmm7Q_wLuvkTXY1h2-DgVP8euTg" />
+	
+	<!-- Favicons -->
+    <link href="assets/img/RubenCloseupRound.png" rel="icon">
+    <link href="assets/img/RubenCloseupRound.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|JetBrains+Mono" rel="stylesheet">
+	
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/code-format.css" rel="stylesheet">
+	
+	<!-- highlight.js script to format code -->
+	<script src="assets/js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<!-- mathjax script to format mathematical expressions -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+	
+	<!-- Load HTML template elements -->
+	<script src="assets/js/add_header.js" type="text/javascript" defer></script> <!-- Header -->
+	
+	<!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	
+
+    <!-- =======================================================
+    * Template Name: iPortfolio - v3.1.0
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list-ul mobile-nav-toggle d-xl-none"></i>
+
+<main id="main">
+
+	<div class="challenge-description">
+	<p>C++ | <span class="challenge-name">Polinomial coefficients</span></p>
+	</div>
+	
+    <!-- ======= Challenge introduction section ======= -->
+    <section id="challenge-introduction" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Challenge introduction</h2>
+
+                <p>Solving this task helps familiarize yourself with <strong>key aspects of programming in C++</strong>. Firstly, it reinforces the 
+				fundamentals of <strong>user input handling, conditional statements, loops, and exception handling</strong>. Besides, it introduces mathematical 
+				concepts related to polynomials and roots, demonstrating how programming can be used to solve <strong>real-world mathematical problems</strong>. </p>
+				
+				<p>The problem is sourced from the <strong>programming languages</strong> subject from <strong>UNED</strong> and is available at the following 
+				<strong><a href="https://www2.uned.es/6102210/" target="_blank" style="color:#02CE55;">link</a></strong>. 
+				I recommend attempting to solve the challenge independently before reviewing the provided solution.</p>
+
+
+            </div>
+
+        </div>
+    </section><!-- End challenge introduction section -->
+	
+	<!-- ======= Problem statement section ======= -->
+    <section id="problem-statement" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Problem statement</h2>
+
+                <p>The polynomial \(f(x)\) can be expressed in the following form:</p>
+				<p>&emsp;&emsp;&emsp;&emsp;\(f(x) = x^{n} + a_{1} · x^{n−1} + · · · + a_{n−1} · x + a_{n}\)</p>
+				<p>or equivalently,</p>
+				<p>&emsp;&emsp;&emsp;&emsp;\(f(x) = (x − α_1) · (x − α_2) · · · (x − α_n)\)</p>
+				<p>Where \(n\) is the degree of the polynomial; \(a_1, a_2, . . . , a_n\) are the coefficients; and \(α_1, α_2, . . . , α_n\) are the roots. 
+				In this exercise, we will assume that all the roots of the polynomial \(f(x)\) are real numbers.</p>
+				<p>Write a C++ program that performs the following actions:</p>
+				<ol>
+					<li>Display a message on the console, requesting the user to input the degree of the polynomial via the console. 
+					Read the value entered via the console and store it in an integer variable named \(n\).</li>
+					<li>If \(n &lt; 1\), display a message on the console indicating this condition and terminate.</li>
+					<li>Display a message on the console, requesting the user to input the n roots of the polynomial. 
+					Read the values entered via the console and store them in a double vector named alpha.</li>
+					<li>Calculate the coefficients of the polynomial \((a1, a2, . . . , an)\) and display them on the console in scientific notation 
+					with 8 digits after the decimal point.</li>
+					<li>Terminate.</li>
+				</ol>
+
+            </div>
+
+        </div>
+    </section><!-- End problem statement section -->
+
+	<!-- ======= Solution section ======= -->
+    <section id="solution" class="challenge-section">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Solution</h2>
+
+                <p>The rationale behind the provided solution can be divided into distinct logical steps. Initially, the program is tasked with handling 
+				user input, which encompasses <strong>correctly gathering and storing information</strong> while also <strong>assessing the appropriateness 
+				of the responses</strong>.</p>
+				
+				<p>Moving on to the mathematical aspect of the problem, an <strong>iterative approach</strong> is employed. It commences with the polynomial 
+				\(f_0(x) = 1\). With each new root introduced, the polynomial undergoes expansion following the <strong>specific rule</strong>: 
+				\(f_i(x) = f_{i-1}(x) · (x - \alpha_i) = f_{i-1}(x) · x - f_{i-1}(x) · \alpha_i\). In this context, \(f_i(x)\) denotes the expanded polynomial up to the 
+				i-th root (inclusive), and \(\alpha_i\) represents the i-th root. Concerning the polynomial's coefficients, multiplying the expanded polynomial up to 
+				the previous root by \(x\) is akin to <strong>shifting all coefficients one position to the left</strong> while introducing a zero in place of the 
+				last coefficient (if they are organized in descending order of power). Conversely, multiplication by \(\alpha_i\) entails <strong>multiplying all 
+				coefficients</strong> of the expanded polynomial up to the previous root by the scalar \(\alpha_i\). Consequently, this process systematically updates 
+				the coefficients of the entire polynomial in each iteration, progressively incorporating all the roots.</p>
+				
+				<p>For those seeking to enhance the algorithm's efficiency, it is conceivable to leverage <strong>specific properties</strong> of the polynomial's roots. 
+				For example, when dealing with repeated roots, it is plausible to initiate the expansion process from those roots, utilizing the expansion of 
+				<strong>Newton's binomial</strong>. However, it is essential to note that these particular optimizations, contingent on the characteristics of 
+				certain root families, have not been integrated into the solution for this problem.</p>
+				
+				<p>Throughout the code, <strong>error handling</strong> has been implemented to address exceptions. Should any issues arise during user input or calculations, 
+				the program furnishes <strong>informative error messages</strong> and concludes execution <strong>in a controlled manner</strong>.</p>
+				
+				<pre><code class="cpp">
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+#include &lt;stdexcept&gt;
+#include &lt;sstream&gt;
+std::vector&lt;double&gt; load_all_roots(int n)
+throw (std::invalid_argument) {
+    double root;
+    std::vector&lt;double&gt; alpha;
+    for (int i = 1; i &lt; n + 1; i++) {
+        std::cout &lt;&lt; "Please enter root alpha" &lt;&lt; i &lt;&lt; ": ";
+        if (!(std::cin &gt;&gt; root)) {
+            std::stringstream ss;
+            ss &lt;&lt; "A non-numeric root has been entered, program terminated.";
+            throw std::invalid_argument(ss.str());
+        }
+        alpha.push_back(root);
+    }
+    return alpha;
+}
+
+std::vector&lt;double&gt; expand_by_single_root(std::vector&lt;double&gt; coefficients, double root) {
+    std::vector&lt;double&gt; expanded_coefficients = coefficients;
+    expanded_coefficients.push_back(0);
+    std::vector&lt;double&gt;::iterator it_1 = expanded_coefficients.begin();
+    std::vector&lt;double&gt;::iterator it_2 = coefficients.begin();
+    for (int i = 0; i &lt; coefficients.size(); i++) {
+       *(it_1 + i + 1) -= *(it_2 + i) * root;
+    }
+    return expanded_coefficients;
+}
+
+std::vector&lt;double&gt; expand_polynomial(std::vector&lt;double&gt; alpha) {
+    std::vector&lt;double&gt; expanded_coefficients = { 1 };
+    std::vector&lt;double&gt;::iterator root;
+    for (root = alpha.begin(); root &lt; alpha.end(); root++) {
+        expanded_coefficients = expand_by_single_root(expanded_coefficients, *root);
+    }
+    return expanded_coefficients;
+}
+
+int main() {
+    int n;
+    std::cout &lt;&lt; "Please enter the degree of the polynomial: ";
+    if (!(std::cin &gt;&gt; n) || std::cin.get() != '\n') {
+        std::cout &lt;&lt; "The selected degree is not an integer, program terminated." &lt;&lt; std::endl;
+        return -1;
+    }else if (n &lt; 1) {
+        std::cout &lt;&lt; "The selected degree is less than one, program terminated" &lt;&lt; std::endl;
+        return -1;
+    }else {
+        try {
+            std::vector&lt;double&gt; alpha = load_all_roots(n);
+            std::vector&lt;double&gt; expanded_coeffs = expand_polynomial(alpha);
+            std::cout &lt;&lt; "\n-------- Polynomial coefficients --------" &lt;&lt; std::endl;
+            int i = 1;
+            std::vector&lt;double&gt;::iterator coef;
+            for (coef = expanded_coeffs.begin() + 1; coef &lt; expanded_coeffs.end(); coef++) {
+                std::cout &lt;&lt; std::scientific &lt;&lt; std::setprecision(8) &lt;&lt; "Coefficient a" &lt;&lt; i;
+                std::cout &lt;&lt; " (x^" &lt;&lt; n - i &lt;&lt; "): " &lt;&lt; *coef &lt;&lt; std::endl;
+                i++;
+            }
+        }
+        catch (std::invalid_argument& exception) {
+    	    std::cout &lt;&lt; exception.what() &lt;&lt; std::endl;
+    	    return -1;
+        }
+    }
+    return 0;
+}
+				</code></pre>
+				
+            </div>
+
+        </div>
+    </section><!-- End solution section -->
+	
+</main>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
