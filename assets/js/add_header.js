@@ -5,7 +5,6 @@ template.innerHTML = `
     <div class="d-flex flex-column">
 
         <div class="profile" style="height:40%;text-align-last:center;">
-            <img src="assets/img/RubenCloseupRound.png" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="index.html">Manohar Pavuluri</a></h1>
             <div class="social-links">
                 
