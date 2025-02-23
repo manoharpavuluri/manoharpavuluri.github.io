@@ -6,12 +6,12 @@ template.innerHTML = `
 
         <div class="profile" style="height:40%;text-align-last:center;">
             <img src="assets/img/RubenCloseupRound.png" alt="" class="img-fluid rounded-circle">
-            <h1 class="text-light"><a href="index.html">Rubén Castillo</a></h1>
+            <h1 class="text-light"><a href="index.html">Manohar Pavuluri</a></h1>
             <div class="social-links">
                 
-				<a href="https://www.linkedin.com/in/rubencastillosanchez/" target="_blank"><img src="assets/img/linkedin_logo.png"></a>
-				<a href="https://github.com/rbcastillo/" target="_blank"><img src="assets/img/github_logo.png"></a>
-				<a href="https://www.hackerrank.com/rbcastillo/" target="_blank"><img src="assets/img/hackerrank_logo.png"></a>
+				<a href="https://www.linkedin.com/in/manoharpavuluri/" target="_blank"><img src="assets/img/linkedin_logo.png"></a>
+				<a href="https://github.com/manoharpavuluri/" target="_blank"><img src="assets/img/github_logo.png"></a>
+				<a href="https://www.hackerrank.com/manoharpavuluri/" target="_blank"><img src="assets/img/hackerrank_logo.png"></a>
 				
             </div>
         </div>
