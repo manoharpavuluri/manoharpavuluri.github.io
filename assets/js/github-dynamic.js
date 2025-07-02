@@ -146,19 +146,18 @@ class GitHubPortfolioUpdater {
         
         // If no specific match, try to match based on project type keywords
         const projectTypeKeywords = {
-            'classification': 'bi-tags',
-            'regression': 'bi-graph-up',
-            'clustering': 'bi-collection',
+            'cnn': 'bi-eye',
             'sentiment': 'bi-heart',
+            'nlp': 'bi-chat-quote',
             'forecasting': 'bi-calendar',
             'prediction': 'bi-graph-up-arrow',
+            'regression': 'bi-graph-up',
+            'clustering': 'bi-collection',
             'analysis': 'bi-graph-up',
             'visualization': 'bi-bar-chart',
             'scraper': 'bi-download',
             'api': 'bi-plug',
             'web': 'bi-globe',
-            'nlp': 'bi-chat-quote',
-            'cnn': 'bi-eye',
             'neural': 'bi-diagram-3',
             'deep': 'bi-layers',
             'machine': 'bi-graph-up',
@@ -171,7 +170,8 @@ class GitHubPortfolioUpdater {
             'research': 'bi-search',
             'insurance': 'bi-shield-check',
             'time': 'bi-clock',
-            'possibilities': 'bi-lightbulb'
+            'possibilities': 'bi-lightbulb',
+            'classification': 'bi-tags'
         };
         
         for (const [keyword, icon] of Object.entries(projectTypeKeywords)) {
