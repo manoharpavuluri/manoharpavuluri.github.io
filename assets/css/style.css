@@ -686,6 +686,87 @@ section {
   font-weight: 600;
 }
 
+.project-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #149ddd 0%, #2D3E50 100%);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.project-icon i {
+  font-size: 28px;
+  color: white;
+}
+
+.portfolio-item:hover .project-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(20, 157, 221, 0.3);
+}
+
+/* Statistics Section Styles */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+  padding: 40px 0;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  border-color: #149ddd;
+  box-shadow: 0 10px 30px rgba(20, 157, 221, 0.2);
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #149ddd 0%, #2D3E50 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+}
+
+.stat-icon i {
+  font-size: 35px;
+  color: white;
+}
+
+.stat-item:hover .stat-icon {
+  transform: scale(1.1);
+}
+
+.stat-content h3 {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #2D3E50;
+  margin-bottom: 10px;
+}
+
+.stat-content p {
+  color: #6c757d;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0;
+}
+
 .tech-stack {
   color: #149ddd;
   font-size: 0.9em;
@@ -790,5 +871,23 @@ section {
   
   .portfolio-content h3 {
     font-size: 1.2em;
+  }
+  
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .stat-item {
+    padding: 20px;
+  }
+  
+  .stat-content h3 {
+    font-size: 2em;
+  }
+  
+  .stat-content p {
+    font-size: 1em;
   }
 }
