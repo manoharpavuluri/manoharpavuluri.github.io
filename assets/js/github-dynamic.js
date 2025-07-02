@@ -133,9 +133,62 @@ class GitHubPortfolioUpdater {
         return detectedTech.slice(0, 4).join(' • ') || (this.config.display.defaultTechStack || 'Python • AI/ML');
     }
 
+    getDynamicIcon(repo, category) {
+        const iconMapping = this.config.iconMapping || {};
+        const fullText = `${repo.name} ${repo.description || ''}`.toLowerCase();
+        
+        // First, try to find a specific technology match
+        for (const [tech, icon] of Object.entries(iconMapping)) {
+            if (tech !== 'default' && fullText.includes(tech.toLowerCase())) {
+                return icon;
+            }
+        }
+        
+        // If no specific match, try to match based on project type keywords
+        const projectTypeKeywords = {
+            'classification': 'bi-tags',
+            'regression': 'bi-graph-up',
+            'clustering': 'bi-collection',
+            'sentiment': 'bi-heart',
+            'forecasting': 'bi-calendar',
+            'prediction': 'bi-graph-up-arrow',
+            'analysis': 'bi-graph-up',
+            'visualization': 'bi-bar-chart',
+            'scraper': 'bi-download',
+            'api': 'bi-plug',
+            'web': 'bi-globe',
+            'nlp': 'bi-chat-quote',
+            'cnn': 'bi-eye',
+            'neural': 'bi-diagram-3',
+            'deep': 'bi-layers',
+            'machine': 'bi-graph-up',
+            'pipeline': 'bi-arrow-right',
+            'etl': 'bi-arrow-repeat',
+            'serverless': 'bi-cloud-check',
+            'cloud': 'bi-cloud',
+            'database': 'bi-database',
+            'sql': 'bi-database',
+            'research': 'bi-search',
+            'insurance': 'bi-shield-check',
+            'time': 'bi-clock',
+            'possibilities': 'bi-lightbulb'
+        };
+        
+        for (const [keyword, icon] of Object.entries(projectTypeKeywords)) {
+            if (fullText.includes(keyword.toLowerCase())) {
+                return icon;
+            }
+        }
+        
+        // Fallback to category default
+        const defaultIcons = iconMapping.default || {};
+        return defaultIcons[category] || 'bi-code-slash';
+    }
+
     createProjectCard(repo, category) {
         const config = this.categories[category];
         const techStack = this.getTechStack(repo);
+        const dynamicIcon = this.getDynamicIcon(repo, category);
         const isFeatured = this.config.display.showFeaturedBadge && repo.stargazers_count > 0;
         
         const featuredClass = isFeatured ? 'featured' : '';
@@ -159,7 +212,7 @@ class GitHubPortfolioUpdater {
                 ${featuredBadge}
                 <div class="portfolio-content">
                     <div class="project-icon">
-                        <i class="${config.icon}"></i>
+                        <i class="${dynamicIcon}"></i>
                     </div>
                     <h3>${this.formatProjectTitle(repo.name)}</h3>
                     <p class="tech-stack">${techStack}</p>

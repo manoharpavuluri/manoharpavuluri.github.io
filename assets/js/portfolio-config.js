@@ -68,6 +68,91 @@ const PORTFOLIO_CONFIG = {
         'dl': 'Deep Learning'
     },
     
+    // Dynamic icon mapping for technologies and project types
+    iconMapping: {
+        // AI/ML Technologies
+        'ai': 'bi-robot',
+        'llm': 'bi-robot',
+        'langchain': 'bi-link-45deg',
+        'llamaindex': 'bi-diagram-3',
+        'ollama': 'bi-cpu',
+        'huggingface': 'bi-emoji-smile',
+        'transformers': 'bi-arrow-repeat',
+        'nlp': 'bi-chat-quote',
+        'sentiment': 'bi-heart',
+        'classification': 'bi-tags',
+        'cnn': 'bi-eye',
+        'deep-learning': 'bi-layers',
+        'machine-learning': 'bi-graph-up',
+        'neural-network': 'bi-diagram-3',
+        
+        // Data Science
+        'python': 'bi-code-slash',
+        'jupyter': 'bi-journal-code',
+        'pandas': 'bi-table',
+        'numpy': 'bi-calculator',
+        'matplotlib': 'bi-graph-up',
+        'seaborn': 'bi-palette',
+        'scikit': 'bi-gear',
+        'tensorflow': 'bi-diagram-3',
+        'pytorch': 'bi-lightning',
+        
+        // Data Engineering
+        'data-engineering': 'bi-database',
+        'snowflake': 'bi-snow',
+        'aws': 'bi-cloud',
+        'lambda': 'bi-lightning',
+        'dynamodb': 'bi-database',
+        'pipeline': 'bi-arrow-right',
+        'etl': 'bi-arrow-repeat',
+        'serverless': 'bi-cloud-check',
+        
+        // Web & Development
+        'web': 'bi-globe',
+        'html': 'bi-file-earmark-code',
+        'css': 'bi-palette',
+        'javascript': 'bi-file-earmark-code',
+        'react': 'bi-box',
+        'node': 'bi-diagram-3',
+        
+        // Database & Storage
+        'sql': 'bi-database',
+        'mysql': 'bi-database',
+        'postgresql': 'bi-database',
+        'mongodb': 'bi-database',
+        'vector': 'bi-collection',
+        
+        // Cloud & Infrastructure
+        'cloud': 'bi-cloud',
+        'docker': 'bi-box',
+        'kubernetes': 'bi-gear',
+        'terraform': 'bi-tools',
+        
+        // Analysis & Visualization
+        'analysis': 'bi-graph-up',
+        'visualization': 'bi-bar-chart',
+        'forecasting': 'bi-calendar',
+        'prediction': 'bi-graph-up-arrow',
+        'regression': 'bi-graph-up',
+        'clustering': 'bi-collection',
+        
+        // Research & Specialized
+        'research': 'bi-search',
+        'insurance': 'bi-shield-check',
+        'time-series': 'bi-clock',
+        'possibilities': 'bi-lightbulb',
+        'scraper': 'bi-download',
+        'api': 'bi-plug',
+        
+        // Default icons for categories
+        'default': {
+            'agentic-ai': 'bi-robot',
+            'data-science-ml': 'bi-graph-up',
+            'data-engineering': 'bi-database',
+            'research': 'bi-search'
+        }
+    },
+    
     // Display settings
     display: {
         maxProjectsPerCategory: 8, // Maximum projects to show per category
