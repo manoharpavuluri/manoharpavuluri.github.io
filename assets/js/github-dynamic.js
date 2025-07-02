@@ -182,7 +182,11 @@ class GitHubPortfolioUpdater {
         
         // Fallback to category default
         const defaultIcons = iconMapping.default || {};
-        return defaultIcons[category] || 'bi-code-slash';
+        if (defaultIcons[category]) {
+            return defaultIcons[category];
+        }
+        // Robust fallback: always return a generic icon if nothing else matches
+        return 'bi-box';
     }
 
     createProjectCard(repo, category) {
