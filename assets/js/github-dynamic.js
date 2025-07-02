@@ -136,7 +136,7 @@ class GitHubPortfolioUpdater {
     createProjectCard(repo, category) {
         const config = this.categories[category];
         const techStack = this.getTechStack(repo);
-        const isFeatured = this.config.display.showFeaturedBadge && (repo.stargazers_count > 0 || repo.fork === false);
+        const isFeatured = this.config.display.showFeaturedBadge && repo.stargazers_count > 0;
         
         const featuredClass = isFeatured ? 'featured' : '';
         const featuredBadge = isFeatured ? '<span class="featured-badge">⭐ Featured</span>' : '';
