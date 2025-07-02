@@ -31,6 +31,8 @@
 	
 	<!-- Load HTML template elements -->
 	<script src="assets/js/add_header.js" type="text/javascript" defer></script> <!-- Header -->	
+	<script src="assets/js/portfolio-config.js" type="text/javascript" defer></script> <!-- Portfolio Configuration -->
+	<script src="assets/js/github-dynamic.js" type="text/javascript" defer></script> <!-- GitHub Dynamic Portfolio -->
 	
 	<!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -128,68 +130,10 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-robot"></i>
-                        </div>
-                        <h3>AI Agentic Exploration</h3>
-                        <p class="tech-stack">LangChain • LlamaIndex • Python • Jupyter</p>
-                        <p>Comprehensive exploration of agentic AI capabilities, including autonomous task execution, reasoning, and decision-making processes. Features advanced prompt engineering and multi-agent coordination.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI_PlayingwithAgentic" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-link-45deg"></i>
-                        </div>
-                        <h3>LangChain & LlamaIndex Integration</h3>
-                        <p class="tech-stack">LangChain • LlamaIndex • RAG • Vector Databases</p>
-                        <p>Advanced integration of LangChain and LlamaIndex for building sophisticated RAG (Retrieval-Augmented Generation) systems. Includes document processing, vector embeddings, and intelligent querying.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-Playing_with_llamaindex_langchain" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <h3>PDF Processing with Ollama & Gemma2</h3>
-                        <p class="tech-stack">LangChain • Ollama • Gemma2 • PDF Processing</p>
-                        <p>Advanced PDF document processing system using Ollama and Gemma2 models. Features intelligent document parsing, question-answering, and content summarization capabilities.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-LangChain-PDF-Ollama-Gemma2" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-cpu"></i>
-                        </div>
-                        <h3>HuggingFace with LangChain</h3>
-                        <p class="tech-stack">HuggingFace • LangChain • Transformers • Python</p>
-                        <p>Integration of HuggingFace models with LangChain for building custom AI applications. Includes model fine-tuning, inference optimization, and deployment strategies.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-Playing_Huggingface_With_Langchain" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #6c757d;">
+                    <i class="bi bi-arrow-clockwise" style="font-size: 2em; animation: spin 1s linear infinite;"></i>
+                    <p>Loading projects from GitHub...</p>
                 </div>
             </div>
 			
@@ -206,102 +150,12 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item featured">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-tags"></i>
-                        </div>
-                        <h3>Mercari Price Prediction (NLP)</h3>
-                        <p class="tech-stack">NLP • Machine Learning • Python • Data Visualization</p>
-                        <p>Advanced price prediction system for Mercari marketplace using natural language processing. Analyzes product descriptions, categories, and market trends to predict optimal pricing strategies.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/ml-mercari-NLP" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #6c757d;">
+                    <i class="bi bi-arrow-clockwise" style="font-size: 2em; animation: spin 1s linear infinite;"></i>
+                    <p>Loading projects from GitHub...</p>
                 </div>
-
-                <div class="portfolio-item featured">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-house"></i>
-                        </div>
-                        <h3>Zillow Real Estate Prediction</h3>
-                        <p class="tech-stack">LightGBM • XGBoost • Ensemble Methods • Python</p>
-                        <p>Sophisticated real estate price prediction model using advanced ensemble methods (LightGBM, XGBoost). Features comprehensive feature engineering and model optimization for accurate property valuations.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/ml-zillow-LightGBM-XGBoost" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-eye"></i>
-                        </div>
-                        <h3>CNN Image Classification (CIFAR)</h3>
-                        <p class="tech-stack">CNN • Deep Learning • TensorFlow/PyTorch • Computer Vision</p>
-                        <p>Convolutional Neural Network implementation for CIFAR dataset classification. Features advanced CNN architectures, data augmentation, and model optimization techniques.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/dl-cnn-imageClassification-CIFAR" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-flower1"></i>
-                        </div>
-                        <h3>Flower Classification with CNN</h3>
-                        <p class="tech-stack">CNN • Data Augmentation • Transfer Learning • Python</p>
-                        <p>Flower classification system using CNN with advanced data augmentation techniques to address overfitting. Implements transfer learning and model fine-tuning strategies.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/dl-cnn-flowerclassification" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-123"></i>
-                        </div>
-                        <h3>MNIST Digit Recognition</h3>
-                        <p class="tech-stack">Deep Learning • Neural Networks • Python • Jupyter</p>
-                        <p>Classic MNIST digit recognition implementation using deep learning. Features various neural network architectures and optimization techniques for high-accuracy digit classification.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/dl_mnist" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-chat-heart"></i>
-                        </div>
-                        <h3>Sentiment Analysis on Tweet Feed</h3>
-                        <p class="tech-stack">NLP • Sentiment Analysis • Tweepy • Machine Learning</p>
-                        <p>Real-time sentiment analysis system for Twitter feeds using NLP techniques. Processes live tweets and provides sentiment classification and trend analysis.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/ml-sentiment-analysis-on-tweet-feed-InProgress" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-			</div>
+            </div>
 
         </div>
     </section><!-- End Data Science & ML Section -->
@@ -316,70 +170,12 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item featured">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-snow"></i>
-                        </div>
-                        <h3>Snowflake & Snowpark Integration</h3>
-                        <p class="tech-stack">Snowflake • Snowpark • Python • Data Warehousing</p>
-                        <p>Comprehensive integration of Snowflake data warehouse with Snowpark for scalable data processing. Features advanced SQL operations, data transformation, and performance optimization.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/DE-SnowflakeSnowpark" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #6c757d;">
+                    <i class="bi bi-arrow-clockwise" style="font-size: 2em; animation: spin 1s linear infinite;"></i>
+                    <p>Loading projects from GitHub...</p>
                 </div>
-
-                <div class="portfolio-item featured">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-cloud-lightning"></i>
-                        </div>
-                        <h3>AWS Lambda & DynamoDB Pipeline</h3>
-                        <p class="tech-stack">AWS Lambda • DynamoDB • Python • Serverless</p>
-                        <p>Serverless data engineering pipeline using AWS Lambda and DynamoDB. Features automated data processing, real-time analytics, and scalable cloud architecture.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/DE-SnowflakeAWSLambdaDynamoDB" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-file-text"></i>
-                        </div>
-                        <h3>Text Summarizer Project</h3>
-                        <p class="tech-stack">NLP • Text Processing • Python • Machine Learning</p>
-                        <p>Advanced text summarization system using NLP techniques. Features extractive and abstractive summarization methods for processing large documents efficiently.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/Text_Summarizer_proj" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-globe"></i>
-                        </div>
-                        <h3>AI Web Scraper</h3>
-                        <p class="tech-stack">Web Scraping • AI • Python • Data Collection</p>
-                        <p>Intelligent web scraping solution using AI techniques for automated data collection. Features intelligent content extraction and data cleaning capabilities.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-WebScrapper_c" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-			</div>
+            </div>
 
         </div>
     </section><!-- End Data Engineering Section -->
@@ -394,68 +190,10 @@
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h3>Deep Learning Insurance Solutions</h3>
-                        <p class="tech-stack">Deep Learning • Insurance • Python • Risk Assessment</p>
-                        <p>Advanced deep learning solutions for insurance industry applications, including risk assessment, fraud detection, and predictive modeling.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/dl_simple_insurance" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-database"></i>
-                        </div>
-                        <h3>NLP SQL LLM Integration</h3>
-                        <p class="tech-stack">NLP • SQL • LLM • Natural Language Querying</p>
-                        <p>Integration of Large Language Models with SQL for natural language database querying. Enables conversational database interactions.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-NLP_SQL_LLM" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-stars"></i>
-                        </div>
-                        <h3>HuggingFace Art of Possibilities</h3>
-                        <p class="tech-stack">HuggingFace • Transformers • AI • Python</p>
-                        <p>Exploration of HuggingFace's transformer models for various AI applications. Demonstrates the versatility and power of modern transformer architectures.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/AI-Art-of-possibilities-with-Huggingface" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <div class="project-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <h3>Time Series Forecasting</h3>
-                        <p class="tech-stack">Time Series • Forecasting • Python • ML</p>
-                        <p>Advanced time series forecasting models for predictive analytics. Features various forecasting techniques and model evaluation methods.</p>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/manoharpavuluri/forecasting_v0" target="_blank" class="github-link">
-                                <i class="bi bi-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #6c757d;">
+                    <i class="bi bi-arrow-clockwise" style="font-size: 2em; animation: spin 1s linear infinite;"></i>
+                    <p>Loading projects from GitHub...</p>
                 </div>
             </div>
 			

@@ -679,6 +679,19 @@ section {
   font-weight: 600;
 }
 
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #149ddd;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+}
+
 .portfolio-content h3 {
   color: #2D3E50;
   font-size: 1.4em;
@@ -850,6 +863,48 @@ section {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+}
+
+/* Repository Stats */
+.repo-stats {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.repo-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8f9fa;
+  color: #6c757d;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.repo-stat:hover {
+  background: #149ddd;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.repo-stat i {
+  font-size: 0.9em;
+  color: #ffc107;
+}
+
+.repo-stat:hover i {
+  color: white;
+}
+
+/* Loading Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Responsive Design for Portfolio */
