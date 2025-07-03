@@ -189,16 +189,58 @@ class GitHubPortfolioUpdater {
         return 'bi-box';
     }
 
-    createProjectCard(repo, category) {
+    async getReadmeSummary(repo) {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${this.username}/${repo.name}/readme`);
+            if (!response.ok) return null;
+            const data = await response.json();
+            if (!data.content) return null;
+            // Decode base64
+            const decoded = atob(data.content.replace(/\s/g, ''));
+            // Extract first non-empty paragraph (skip badges, titles, etc.)
+            const lines = decoded.split(/\r?\n/);
+            let summary = '';
+            for (let line of lines) {
+                line = line.trim();
+                if (line && !line.startsWith('![') && !line.startsWith('#')) {
+                    summary = line;
+                    break;
+                }
+            }
+            // Fallback: first 200 chars if no paragraph found
+            if (!summary && decoded.length > 0) {
+                summary = decoded.substring(0, 200) + (decoded.length > 200 ? '...' : '');
+            }
+            return summary || null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    async getProjectDescription(repo, category) {
+        if (repo.description && repo.description.trim().length > 0) {
+            return repo.description;
+        }
+        // Try to get README summary
+        const readmeSummary = await this.getReadmeSummary(repo);
+        if (readmeSummary) return readmeSummary;
+        // Category-based fallback
+        const categoryFallbacks = {
+            'agentic-ai': 'An innovative project in autonomous AI and large language models.',
+            'data-science-ml': 'A data science or machine learning project with practical applications.',
+            'data-engineering': 'A project focused on scalable data engineering and cloud solutions.',
+            'research': 'A research-driven project exploring advanced concepts and techniques.'
+        };
+        return categoryFallbacks[category] || 'A project demonstrating modern software and data practices.';
+    }
+
+    async createProjectCardAsync(repo, category) {
         const config = this.categories[category];
         const techStack = this.getTechStack(repo);
         const dynamicIcon = this.getDynamicIcon(repo, category);
         const isFeatured = this.config.display.showFeaturedBadge && repo.stargazers_count > 0;
-        
         const featuredClass = isFeatured ? 'featured' : '';
         const featuredBadge = isFeatured ? '<span class="featured-badge">⭐ Featured</span>' : '';
-        
-        // Repository stats
         let statsHtml = '';
         if (this.config.display.showRepositoryStats) {
             const stats = [];
@@ -210,7 +252,7 @@ class GitHubPortfolioUpdater {
             }
             statsHtml = stats.length > 0 ? `<div class="repo-stats">${stats.join(' ')}</div>` : '';
         }
-
+        const description = await this.getProjectDescription(repo, category);
         return `
             <div class="portfolio-item ${featuredClass}">
                 ${featuredBadge}
@@ -220,7 +262,7 @@ class GitHubPortfolioUpdater {
                     </div>
                     <h3>${this.formatProjectTitle(repo.name)}</h3>
                     <p class="tech-stack">${techStack}</p>
-                    <p>${repo.description || 'A comprehensive project showcasing advanced techniques and best practices.'}</p>
+                    <p>${description}</p>
                     ${statsHtml}
                     <div class="portfolio-links">
                         <a href="${repo.html_url}" target="_blank" class="github-link">
@@ -243,7 +285,7 @@ class GitHubPortfolioUpdater {
             .replace(/\b(ai|ml|dl|de|nlp|cnn|llm|rag|etl|aws|sql)\b/gi, (match) => match.toUpperCase());
     }
 
-    updatePortfolioSections() {
+    async updatePortfolioSections() {
         // Group repositories by category
         const categorizedRepos = {};
         for (const repo of this.repositories) {
@@ -253,22 +295,20 @@ class GitHubPortfolioUpdater {
             }
             categorizedRepos[category].push(repo);
         }
-
         // Update each section
         for (const [category, repos] of Object.entries(categorizedRepos)) {
             const sectionId = category === 'research' ? 'additional-projects' : category;
             const section = document.getElementById(sectionId);
-            
             if (section) {
                 const portfolioGrid = section.querySelector('.portfolio-grid');
                 if (portfolioGrid) {
                     // Clear existing content
                     portfolioGrid.innerHTML = '';
-                    
-                    // Add new project cards
-                    repos.forEach(repo => {
-                        portfolioGrid.innerHTML += this.createProjectCard(repo, category);
-                    });
+                    // Add new project cards asynchronously
+                    for (const repo of repos) {
+                        const cardHtml = await this.createProjectCardAsync(repo, category);
+                        portfolioGrid.innerHTML += cardHtml;
+                    }
                 }
             }
         }
