@@ -68,6 +68,24 @@ const PORTFOLIO_CONFIG = {
         'dl': 'Deep Learning'
     },
     
+    // Industry keywords for automatic detection
+    industryKeywords: {
+        'finance': ['trading', 'finance', 'banking', 'investment', 'stock', 'market', 'portfolio', 'risk', 'derivatives'],
+        'healthcare': ['healthcare', 'medical', 'health', 'patient', 'clinical', 'diagnosis', 'treatment', 'pharma'],
+        'retail': ['retail', 'ecommerce', 'shopping', 'sales', 'customer', 'inventory', 'pricing', 'marketing'],
+        'education': ['education', 'learning', 'academic', 'student', 'course', 'training', 'assessment'],
+        'utilities': ['utility', 'energy', 'power', 'grid', 'infrastructure', 'smart-grid', 'metering'],
+        'oil-gas': ['oil', 'gas', 'petroleum', 'drilling', 'exploration', 'upstream', 'downstream'],
+        'renewables': ['renewable', 'solar', 'wind', 'green', 'sustainability', 'clean-energy', 'carbon'],
+        'non-profit': ['nonprofit', 'charity', 'social', 'community', 'ngo', 'philanthropy'],
+        'startup': ['startup', 'entrepreneur', 'innovation', 'disrupt', 'scale', 'growth'],
+        'telecom': ['telecom', 'communication', 'network', 'mobile', '5g', 'wireless'],
+        'manufacturing': ['manufacturing', 'production', 'quality', 'supply-chain', 'logistics'],
+        'transportation': ['transport', 'logistics', 'fleet', 'delivery', 'shipping'],
+        'insurance': ['insurance', 'claims', 'underwriting', 'actuarial', 'risk-assessment'],
+        'real-estate': ['real-estate', 'property', 'housing', 'mortgage', 'construction']
+    },
+    
     // Dynamic icon mapping for technologies and project types
     iconMapping: {
         // AI/ML Technologies

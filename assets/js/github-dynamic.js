@@ -77,9 +77,54 @@ class GitHubPortfolioUpdater {
     }
 
     updateStatistics() {
+        // Update repository count
         const repoCountElement = document.querySelector('.stat-item:nth-child(2) .stat-content h3');
         if (repoCountElement) {
             repoCountElement.textContent = `${this.repositories.length}+`;
+        }
+
+        // Calculate unique technologies
+        const uniqueTechnologies = new Set();
+        for (const repo of this.repositories) {
+            const techStack = this.getTechStack(repo);
+            const techs = techStack.split(' • ');
+            techs.forEach(tech => uniqueTechnologies.add(tech.trim()));
+        }
+        
+        // Update technologies count
+        const techCountElement = document.querySelector('.stat-item:nth-child(3) .stat-content h3');
+        if (techCountElement) {
+            techCountElement.textContent = `${uniqueTechnologies.size}+`;
+        }
+
+        // Calculate industries based on repository topics and descriptions
+        const industries = new Set();
+        const industryKeywords = this.config.industryKeywords || {
+            'finance': ['trading', 'finance', 'banking', 'investment', 'stock', 'market'],
+            'healthcare': ['healthcare', 'medical', 'health', 'patient', 'clinical'],
+            'retail': ['retail', 'ecommerce', 'shopping', 'sales', 'customer'],
+            'education': ['education', 'learning', 'academic', 'student', 'course'],
+            'utilities': ['utility', 'energy', 'power', 'grid', 'infrastructure'],
+            'oil-gas': ['oil', 'gas', 'petroleum', 'drilling', 'exploration'],
+            'renewables': ['renewable', 'solar', 'wind', 'green', 'sustainability'],
+            'non-profit': ['nonprofit', 'charity', 'social', 'community'],
+            'startup': ['startup', 'entrepreneur', 'innovation', 'disrupt'],
+            'telecom': ['telecom', 'communication', 'network', 'mobile']
+        };
+
+        for (const repo of this.repositories) {
+            const fullText = `${repo.name} ${repo.description || ''}`.toLowerCase();
+            for (const [industry, keywords] of Object.entries(industryKeywords)) {
+                if (keywords.some(keyword => fullText.includes(keyword))) {
+                    industries.add(industry);
+                }
+            }
+        }
+
+        // Update industries count
+        const industryCountElement = document.querySelector('.stat-item:nth-child(4) .stat-content h3');
+        if (industryCountElement) {
+            industryCountElement.textContent = `${industries.size}+`;
         }
     }
 
