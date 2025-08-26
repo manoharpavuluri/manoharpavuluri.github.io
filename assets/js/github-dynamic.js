@@ -144,7 +144,7 @@ class GitHubPortfolioUpdater {
 
         // If no match found, try to categorize based on repository name patterns
         if (repoName.startsWith('ai-') || repoName.startsWith('ai_')) {
-            return 'agentic-ai';
+            return 'generative-ai';
         } else if (repoName.startsWith('ml-') || repoName.startsWith('dl-')) {
             return 'data-science-ml';
         } else if (repoName.startsWith('de-')) {
@@ -171,7 +171,7 @@ class GitHubPortfolioUpdater {
             detectedTech.push('Python', 'Machine Learning');
         } else if (category === 'data-engineering' && detectedTech.length === 0) {
             detectedTech.push('Python', 'Data Engineering');
-        } else if (category === 'agentic-ai' && detectedTech.length === 0) {
+        } else if (category === 'generative-ai' && detectedTech.length === 0) {
             detectedTech.push('Python', 'AI');
         }
 
@@ -271,7 +271,7 @@ class GitHubPortfolioUpdater {
         if (readmeSummary) return readmeSummary;
         // Category-based fallback
         const categoryFallbacks = {
-            'agentic-ai': 'An innovative project in autonomous AI and large language models.',
+            'generative-ai': 'An innovative project in autonomous AI and large language models.',
             'data-science-ml': 'A data science or machine learning project with practical applications.',
             'data-engineering': 'A project focused on scalable data engineering and cloud solutions.',
             'research': 'A research-driven project exploring advanced concepts and techniques.'
