@@ -7,10 +7,10 @@ const PORTFOLIO_CONFIG = {
     
     // Categories configuration
     categories: {
-        'agentic-ai': {
+        'generative-ai': {
             keywords: ['agentic', 'langchain', 'llamaindex', 'ollama', 'gemma', 'huggingface', 'llm', 'ai'],
             icon: 'bi-robot',
-            title: '🤖 Agentic AI & LLM Solutions',
+            title: '🤖 Generative AI & LLM Solutions',
             description: 'Exploring the cutting-edge world of autonomous AI agents and Large Language Models.'
         },
         'data-science-ml': {
@@ -164,7 +164,7 @@ const PORTFOLIO_CONFIG = {
         
         // Default icons for categories
         'default': {
-            'agentic-ai': 'bi-robot',
+            'generative-ai': 'bi-robot',
             'data-science-ml': 'bi-graph-up',
             'data-engineering': 'bi-database',
             'research': 'bi-search'
