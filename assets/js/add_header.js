@@ -23,7 +23,7 @@ template.innerHTML = `
         <nav id="navbar" class="nav-menu navbar">
             <ul>
                 <li><a href="index.html" class="nav-link scrollto active"><span>Home</span></a></li>
-                <li><a href="index.html#agentic-ai" class="nav-link scrollto"><span>🤖 Agentic AI</span></a></li>
+                <li><a href="index.html#generative-ai" class="nav-link scrollto"><span>🤖 Generative AI</span></a></li>
                 <li><a href="index.html#data-science-ml" class="nav-link scrollto"><span>📊 Data Science & ML</span></a></li>
                 <li><a href="index.html#data-engineering" class="nav-link scrollto"><span>⚡ Data Engineering</span></a></li>
                 <li><a href="index.html#additional-projects" class="nav-link scrollto"><span>🔬 Research</span></a></li>
